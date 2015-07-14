@@ -1,6 +1,33 @@
 /* Main.css */
 
+body {
+  background: #b28c8c;
+  font-family: 'Abril Fatface';
+  font-size: 3em;
+  color: #FFF;
+}
+
+#logo {
+  position: fixed;
+  top: 2vh;
+  left: 2vh;
+  margin-bottom: 1vh;
+  z-index: 2;
+  font-size: 2em;
+
+}
+
+#add-button {
+  position: fixed;
+  top: 8vh;
+  right: 2vh;
+  margin-bottom: 1vh;
+  z-index: 2;
+  background: #9CA998;
+}
+
 .grid {
+  margin-top: 10vh;
   max-width: 100vw;
   max-height: 100vh;
 }

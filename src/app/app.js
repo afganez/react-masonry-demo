@@ -21,8 +21,8 @@ var GridController = React.createClass({
         return (
             /*jshint ignore:start */
             <div>
-                <h2>Andrew Heppner</h2>
-                <button onClick={this.addImage}>Add Picture</button>
+                <h2 id="logo">Andrew Heppner</h2>
+                <button id="add-button" onClick={this.addImage}>Add Picture</button>
                 <Grid images={this.state.images} />
             </div>
             /*jshint ignore:end */
