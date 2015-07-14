@@ -1,0 +1,14 @@
+/* Main.css */
+
+.grid {
+  max-width: 100vw;
+  max-height: 100vh;
+}
+
+.grid-item {
+  float: left;
+  margin-bottom: 1vh;
+  /*width: 20vw;
+  height: 20vh;*/
+}
+
