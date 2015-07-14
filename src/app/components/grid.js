@@ -15,12 +15,11 @@ var Grid = React.createClass({
     GridActions.removeImage(index);
   },
   render: function() {
-    var self = this;
     var images = this.props.images.map(function(image, index){
       return (
-        <img src={image.url} className='grid-item' key={index} onClick={() => self.removeImage(index)}/>
+        <img src={image.url} className='grid-item' key={index} onClick={() => this.removeImage(index)}/>
       )
-    });
+    }.bind(this));
       return (
 
           /*jshint ignore:start */
