@@ -1,31 +1,28 @@
 var React = require('react');
 
-var PackeryMixin = require('react-packery-mixin');
-
-var packeryOptions = {
-    transitionDuration: 0,
-    gutter: 10
-
-};
+var MasonryMixin = require('react-masonry-mixin');
+ 
+var masonryOptions = {};
 
 var Grid = React.createClass({
-
-  mixins: [PackeryMixin('packeryContainer', packeryOptions)],
+  mixins: [MasonryMixin('masonryContainer', masonryOptions)],
 
   render: function() {
-    var images = this.props.images.map(function(image, index){
+    var images = this.props.images.map(function(image, index) {
       return (
-        <img src={image.url} className='grid-item' key={index} />
-      )
-    });
-      return (
-
-          /*jshint ignore:start */
-          <div ref='packeryContainer'>
-            {images}
-          </div>
-          /*jshint ignore:end */
+        <div style={{clear: 'both', padding: '5px'}} key={index}>
+          <img src={image.url} />
+        </div>
       );
+    });
+
+    return (
+      /*jshint ignore:start */
+      <div ref='masonryContainer'>
+        {images}
+      </div>
+      /*jshint ignore:end */
+    );
   }
 });
 
