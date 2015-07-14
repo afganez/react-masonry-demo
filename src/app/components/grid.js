@@ -2,33 +2,27 @@ var React = require('react');
 
 var MasonryMixin = require('react-masonry-mixin');
  
-var masonryOptions = {
-    columnWidth:100,
-    transitionDuration: '1s',
-    itemSelector: '.grid-item',
-    gutter: 20,
-    containerStyle: null
-    
-};
+var masonryOptions = {};
 
 var Grid = React.createClass({
-
   mixins: [MasonryMixin('masonryContainer', masonryOptions)],
 
   render: function() {
-    var images = this.props.images.map(function(image, index){
+    var images = this.props.images.map(function(image, index) {
       return (
-        <img src={image.url} className='grid-item' key={index} />
-      )
-    });
-      return (
-
-          /*jshint ignore:start */
-          <div ref='masonryContainer'>
-            {images}
-          </div>
-          /*jshint ignore:end */
+        <div style={{clear: 'both', padding: '5px'}} key={index}>
+          <img src={image.url} />
+        </div>
       );
+    });
+
+    return (
+      /*jshint ignore:start */
+      <div ref='masonryContainer'>
+        {images}
+      </div>
+      /*jshint ignore:end */
+    );
   }
 });
 
