@@ -1,28 +1,34 @@
 var React = require('react');
+var PackeryMixin = require('react-packery-mixin');
+var GridActions = require('../actions/gridActions.js');
 
-var MasonryMixin = require('react-masonry-mixin');
- 
-var masonryOptions = {};
+var packeryOptions = {
+    transitionDuration: 0,
+    gutter: 10
+};
 
 var Grid = React.createClass({
-  mixins: [MasonryMixin('masonryContainer', masonryOptions)],
 
+  mixins: [PackeryMixin('packeryContainer', packeryOptions)],
+
+  removeImage: function(index){
+    GridActions.removeImage(index);
+  },
   render: function() {
-    var images = this.props.images.map(function(image, index) {
+    var self = this;
+    var images = this.props.images.map(function(image, index){
       return (
-        <div style={{clear: 'both', padding: '5px'}} key={index}>
-          <img src={image.url} />
-        </div>
-      );
+        <img src={image.url} className='grid-item' key={index} onClick={() => self.removeImage(index)}/>
+      )
     });
+      return (
 
-    return (
-      /*jshint ignore:start */
-      <div ref='masonryContainer'>
-        {images}
-      </div>
-      /*jshint ignore:end */
-    );
+          /*jshint ignore:start */
+          <div ref='packeryContainer'>
+            {images}
+          </div>
+          /*jshint ignore:end */
+      );
   }
 });
 
